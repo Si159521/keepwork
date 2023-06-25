@@ -7,16 +7,17 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
-
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
-    lateinit var login_kakao : Button
+    lateinit var login_kakao : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +30,24 @@ class MainActivity : AppCompatActivity() {
             Log.d("getKeyHash", "Key hash is null")
         }
 
-        val callback = { oAuthToken: OAuthToken?, throwable: Throwable? ->
-            updateKakaoLoginUi()
-            null // 반환 값은 Unit (null)입니다.
+        val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+            if (error != null) {
+                Log.e(TAG, "로그인 실패 $error")
+            } else if (token != null) {
+                Log.e(TAG, "로그인 성공 ${token.accessToken}")
+            }
         }
 
-        login_kakao = findViewById<Button>(R.id.btn_kakaoLogin)
+        login_kakao = findViewById<ImageButton>(R.id.btn_kakaoLogin)
 
         login_kakao.setOnClickListener {
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
-                UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
+                UserApiClient.instance.loginWithKakaoTalk(this, callback = mCallback)
             } else {
-                UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+                UserApiClient.instance.loginWithKakaoAccount(this, callback = mCallback)
             }
         }
+
     }
 
     companion object {
@@ -88,9 +93,10 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "invoke: age" + user.kakaoAccount?.ageRange)
             } else {
                 // 로그인이 안되어 있을 때
-                Log.d(TAG, "로그인이 안되어 있넹")
+                Log.d(TAG, "로그인이 안되어 있음")
             }
-            return@me Unit // 반환 값은 Unit (null)입니다.
+            null
         }
     }
+
 }
