@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 class LogInActivity : AppCompatActivity(){
     //
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private val tabTextList = listOf("개인회원 로그인", "기업회원 로그인")
+    private val tabTextList = listOf("개인회원", "기업회원")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

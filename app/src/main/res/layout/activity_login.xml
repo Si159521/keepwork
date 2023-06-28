@@ -13,26 +13,25 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="30dp"
         app:srcCompat="@drawable/logo1" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/p_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인회원" />
+        app:tabRippleColor="#35B891"
+        app:tabGravity="fill"
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/c_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기업회원" />
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="#35B891"
 
-    </com.google.android.material.tabs.TabLayout>
+        app:tabIndicatorColor="#35B891"
+        app:tabIndicatorHeight="10dp"
+        app:tabIndicatorGravity="bottom" />
+
+
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager01"
