@@ -8,7 +8,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.a23_hf069.databinding.ActivityLoginBinding
 
 class LogInActivity : AppCompatActivity(){
-    //
     private val binding: ActivityLoginBinding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
     private val tabTextList = listOf("개인회원", "기업회원")
     override fun onCreate(savedInstanceState: Bundle?) {
