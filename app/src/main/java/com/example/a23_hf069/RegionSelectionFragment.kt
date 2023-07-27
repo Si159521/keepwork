@@ -1,5 +1,6 @@
 package com.example.a23_hf069
 
+import FilteringTestFragment
 import android.os.Bundle
 import android.util.Xml
 import android.view.LayoutInflater
@@ -114,7 +115,7 @@ class RegionSelectionFragment : Fragment() {
             val selectedRegions = selectedRegionList.joinToString(", \n")
             sharedSelectionViewModel.selectedRegion = selectedRegions // 선택된 지역 정보를 ViewModel에 저장
 
-            val wantedFilteringFragment = WantedFilteringFragment()
+            val wantedFilteringFragment = FilteringTestFragment()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_container, wantedFilteringFragment)
                 .addToBackStack(null)

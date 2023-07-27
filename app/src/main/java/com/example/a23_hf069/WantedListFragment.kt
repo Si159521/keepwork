@@ -1,5 +1,6 @@
 package com.example.a23_hf069
 
+import FilteringTestFragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -39,7 +40,7 @@ class WantedListFragment : Fragment(), TabLayout.OnTabSelectedListener {
 
         filter = view.findViewById<Button>(R.id.conditionButton)
         filter.setOnClickListener() {
-            val fragment1 = WantedFilteringFragment()
+            val fragment1 = FilteringTestFragment()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_container, fragment1)
                 .addToBackStack(null)

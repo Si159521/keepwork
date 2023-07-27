@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".WantedFilteringFragment">
+    tools:context=".FilteringTestFragment">
 
     <FrameLayout
         android:id="@+id/fl_container"
@@ -151,23 +151,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="40dp"
-            android:text="전체" />
+            android:text="학력무관" />
 
-        <CheckBox
-            android:id="@+id/cb_e_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:text="초등학교 졸" />
-
-        <CheckBox
-            android:id="@+id/cb_e_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:text="중학교 졸" />
     </LinearLayout>
 
     <LinearLayout
@@ -221,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="전체" />
+            android:text="경력무관" />
 
         <CheckBox
             android:id="@+id/cb_c_2"

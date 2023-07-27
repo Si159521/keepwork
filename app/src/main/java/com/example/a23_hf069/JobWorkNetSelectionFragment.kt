@@ -1,5 +1,6 @@
 package com.example.a23_hf069
 
+import FilteringTestFragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -94,7 +95,7 @@ class JobWorkNetSelectionFragment : Fragment() {
             val selectedJobs = selectedJobList.joinToString(", \n")
             sharedSelectionViewModel.selectedJob = selectedJobs // 선택된 직종 정보를 ViewModel에 저장
 
-            val wantedFilteringFragment = WantedFilteringFragment()
+            val wantedFilteringFragment = FilteringTestFragment()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_container, wantedFilteringFragment)
                 .addToBackStack(null)
